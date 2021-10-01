@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+v64 smallestPrimes;
+
+void smallestPrimeFactors(ll n) {
+    v64 leastPrime(n+1,0);
+    smallestPrimes.eb(0);
+    smallestPrimes.eb(0);
+    for(ll i = 2;i<=n;i++) {
+        if(!leastPrime[i]) {
+            smallestPrimes.eb(i);
+            for(ll j=i*i;j<=n;j+=i) {
+                if(!leastPrime[j])
+                    leastPrime[j]=i;
+            }
+        } else {
+            smallestPrimes.eb(leastPrime[i]);
+        }
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>spf</tabTrigger> -->
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
