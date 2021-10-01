@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+//Replace this N with the highest value of constraint
+ll N = 100;
+v64 v(N+1);
+
+void makeTotToN(ll n=N) {
+    forn(i,n+1)
+        v[i]=i;
+    for(ll p = 2;p<=n;p++) {
+        if(v[p]==p) {
+            v[p]=p-1;
+            for(ll i = 2*p;i<=n;i+=p)
+                v[i]=(v[i]/p)*(p-1);
+        }
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ephiton</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
