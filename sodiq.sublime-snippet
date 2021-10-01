@@ -1,0 +1,45 @@
+<snippet>
+	<content><![CDATA[
+//The N should be the max number you want
+ll N = 1000;
+
+v64 leastPrime(N+1,0);
+
+void smallestPrimeFactors() {
+    for(ll i = 2;i<=N;i++) {
+        if(!leastPrime[i]) {
+            leastPrime[i]=i;
+            for(ll j=i*i;j<=N;j+=i) {
+                if(!leastPrime[j])
+                    leastPrime[j]=i;
+            }
+        }
+    }
+}
+
+ll query(ll n) {
+    ll res=1,prev=leastPrime[n];
+    ll term = prev;
+    ll sum = 1+term;
+    n/=prev;
+    while(n>1) {
+        if(leastPrime[n]==prev) {
+            term*=prev;
+            sum+=term;
+        } else {
+            prev=leastPrime[n];
+            res*=sum;
+            term=prev;
+            sum=1+term;
+        }
+        n/=prev;
+    }
+    res*=sum;
+    return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sodiq</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
