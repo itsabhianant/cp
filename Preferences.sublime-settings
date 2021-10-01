@@ -1,0 +1,19 @@
+{
+	/*"font_size": 16,*/
+	"font_size": 17,
+	"font_face": "Fira Code",
+	"save_on_focus_lost": true, 
+
+	"added_words":
+	[
+		"Abhihek",
+		"Anant",
+		"itsabhianant",
+		"txt",
+	],
+	"color_scheme": "Packages/Colorsublime - Themes/Mcedit.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+}
