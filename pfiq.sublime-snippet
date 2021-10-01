@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+//The N should be the max number you want
+ll N = 1000;
+
+v64 leastPrime(N+1,0);
+
+void smallestPrimeFactors() {
+    for(ll i = 2;i<=N;i++) {
+        if(!leastPrime[i]) {
+            leastPrime[i]=i;
+            for(ll j=i*i;j<=N;j+=i) {
+                if(!leastPrime[j])
+                    leastPrime[j]=i;
+            }
+        }
+    }
+}
+
+void query(ll n) {
+    while(n>1) {
+        cout<<leastPrime[n]<<' ';
+        n/=leastPrime[n];
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>pfiq</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> 
+</snippet>
