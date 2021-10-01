@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+int table[256];
+
+//Call this from main
+void initialize() {
+    table[0]=0;
+    forsn(i,1,255)
+        table[i]=(i&1)+table[i/2];
+}
+
+int countSetbits(int n) {
+    int res = table[n&0xff];n>>=8;
+    res+=table[n&0xff];n>>=8;
+    res+=table[n&0xff];n>>=8;
+    res+=table[n&0xff];
+    return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>noofsetbits</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> 
+</snippet>
