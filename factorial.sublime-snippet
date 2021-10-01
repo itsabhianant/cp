@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+ll fact(ll n) {
+    ll ans = 1LL%MOD;
+    forsn(i,2,n) {
+        ans = ((ans%MOD) * (i%MOD))%MOD;
+    }
+    return ans;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>factorial</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
