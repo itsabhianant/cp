@@ -1,0 +1,36 @@
+<snippet>
+	<content><![CDATA[
+ll gcdExt(ll a,ll b,ll &x,ll &y) {
+    if(b==0) {
+        x=1;
+        y=0;
+        return a;
+    }
+    ll x1,y1;
+    ll g = gcdExt(b,a%b,x1,y1);
+    x=y1;
+    y=x1-(a/b)*y1;
+    return g;
+}
+
+ll ldeSolutions(ll a,ll b,ll c,ll &x) {
+    if(a==0&&b==0) {
+        if(c!=0)
+            return -1LL;
+        else
+            x=0LL;
+        return 0LL;
+    }
+    ll x0,y0;
+    ll g = gcdExt(abs(a),abs(b),x0,y0);
+    if(c%g!=0)
+        return -1;
+    x=x0*(c/g);
+    return (y0*(c/g));
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>lde</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
