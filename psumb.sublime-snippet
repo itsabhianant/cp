@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+void printPowerSet(string s) {
+    ll n = sz(s);
+    ll powSize = 1<<n;
+    forn(counter,powSize) {
+        forn(j,n) {
+            if(counter&(1<<j))
+                cout<<s[j];
+        }
+        cout<<endl;
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>psubm</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
