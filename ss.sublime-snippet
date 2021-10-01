@@ -1,0 +1,44 @@
+<snippet>
+	<content><![CDATA[
+v64 prime;
+
+void seive(ll n) {
+    vector<bool> isPrime(n+1,true);
+    for(ll i=2;i<=n;i++) {
+        if(isPrime[i]) {
+            prime.eb(i);
+            for(ll j=i*i;j<=n;j+=i) {
+                isPrime[j]=false;
+            }
+        }
+    }
+}
+
+// In the main function replace l and h with lowest and highest value of the constraint respectively
+void segSeive(ll l,ll h) {
+    ll sq = sqrt(h);
+    seive(sq);
+    vector<bool> isPrime(h-l+1,true);
+    for(auto p:prime) {
+        ll sm = (l/p)*p;
+        if(sm<l)
+            sm+=p;
+        for(ll m=sm;m<=h;m+=p) {
+            if(m!=p)
+                isPrime[m-l]=false;
+        }
+    }
+    prime.clear();
+    for(ll i=l;i<=h;i++) {
+        if(isPrime[i-l]&&i!=1)
+            prime.eb(i);
+        else
+            prime.eb(0);
+    }
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ss</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope>
+</snippet>
