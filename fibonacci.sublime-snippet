@@ -1,0 +1,39 @@
+<snippet>
+	<content><![CDATA[
+ll fib(ll n,ll &next) {
+    if(n==0) {
+        next = 1;
+        return 0LL;
+    } 
+    ll nb2p1;
+    ll nb2 = fib(n/2,nb2p1);
+    ll a = nb2 * (2 * nb2p1 - nb2);
+    ll b = nb2p1 * nb2p1 + nb2 * nb2;
+    if (n%2==0) {
+        next = b;
+        return a;
+    } else {
+        next = a + b;
+        return b;
+    }
+}
+
+/*
+ll pofMOD = 2000000016;
+ll get_pisano_period(ll m) {
+    ll a = 0, b = 1, c = a + b;
+    for (ll i = 0; i < m * m; i++) {
+        c = (a + b) % m;
+        a = b;
+        b = c;
+        if (a == 0 && b == 1) return i + 1;
+    }
+    return 0;
+}*/
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fibonacci</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>source.c++</scope> 
+</snippet>
