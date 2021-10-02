@@ -1,14 +1,12 @@
 <snippet>
 	<content><![CDATA[
 void getDivisors(ll n) {
-    ll i;
-    for(i=1;i*i<n;i++) {
-        if(!(n%i))
-            cout<<i<<' ';
-    }
-    for(;i>=1;i--) {
-        if(!(n%i))
-            cout<<n/i<<' ';
+    for(ll i = 1;i*i<=n;i++) {
+	if(n%i==0) {
+	    cout<<i<<' ';
+	    if(i!=n/i)
+		cout<<n/i<<' ';
+        }
     }
 }
 ]]></content>
